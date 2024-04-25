@@ -1,0 +1,12 @@
+name: CETM25
+title: CETM25
+username: datahajer
+account: datahajer
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11694896
+bundleId: 8537416
+url: https://datahajer.shinyapps.io/CETM25/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
