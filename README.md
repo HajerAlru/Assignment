@@ -1,8 +1,8 @@
 # Revolut Spending Data Visualisation Dashboard
 
-This project consists of a Shiny application designed to visualize
-spending data. The application utilizes various R packages to create
-interactive visualizations and download functionality for further
+This project consists of a Shiny application designed to visualise
+spending data. The application utilises various R packages to create
+interactive visualisations and download functionality for further
 analysis.
 
 ## Accessing the Visualisation Product:
@@ -12,10 +12,6 @@ You have two options to access the visualisation product:
 1. **Run the R Code:** 
 You can run the provided R code to launch the Shiny application locally on your machine. Ensure you have R and the required packages installed. Then, execute the `shinyApp` function in R after setting up the UI and server components. 
 
-2. **Visit the Shinyapps.io Link:** 
-The final visualisation product is also deployed on shinyapps.io for convenient access. You can view and interact with the application directly by visiting the following URL:
-<https://datahajer.shinyapps.io/CETM25/> 
-
 To run the application, you will need RStudio installed on your machine. Follow these steps to access the visualisations: 
 1. Open RStudio. 
 2. Load the provided R code
@@ -24,19 +20,24 @@ file.
 the following commands in the R console:
 ` install.packages("shiny")    install.packages("plotly")    install.packages("tidyverse")    install.packages("readxl")    install.packages("reshape2")    install.packages("rsconnect")`
 
+2. **Visit the Shinyapps.io Link:** 
+The final visualisation product is also deployed on shinyapps.io for convenient access. You can view and interact with the application directly by visiting the following URL:
+<https://datahajer.shinyapps.io/CETM25/> 
+
 ## Preprocessing
 
-The spending data has undergone preprocessing to ensure accurate and
-meaningful visualizations. This includes cleaning, filtering, and
+The Revolut spending data has undergone preprocessing to ensure accurate and
+meaningful visualisations. This includes cleaning, filtering, and
 formatting the data to improve its quality and relevance for analysis.
-The pre-processed data used in the visualizations may differ from the
-original dataset provided.
+The pre-processed data used in the visualisations may differ from the
+original dataset provided. Refer to the data source to access the original 
+dataset.
 
 ## Features
 
 
 -   Monthly bar chart (Plot 1): Presents average monthly spending, with
-    customizable labels and colors.
+    customisable labels and colors.
     
 ![GIF Recording 2024-04-25 at 1 12 42 pm](https://github.com/HajerAlru/Assignment/assets/168104134/0c2b8b27-bed8-4da5-add9-132337694e63)
 
