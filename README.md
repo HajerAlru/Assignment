@@ -98,7 +98,7 @@ Statistics](https://www.ons.gov.uk/economy/economicoutputandproductivity/output/
 
 For questions or further information, feel free to contact the project
 maintainers at
-[bi65ia\@student.sunderland.ac.uk](mailto:bi65ia@student.sunderland.ac.uk){.email}.
+[bi65ia\@student.sunderland.ac.uk](mailto:bi65ia@student.sunderland.ac.uk)
 
 ## Acknowledgments
 
