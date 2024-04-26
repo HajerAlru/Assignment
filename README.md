@@ -35,6 +35,25 @@ dataset.
 
 ## Features
 
+### General Tab
+
+- Navigating the Dashboard:
+Provides guidance on exploring various charts and graphs for insights into spending behavior.
+
+- About Revolut:
+Brief information about Revolut, the financial technology company providing the dataset.
+
+- Dashboard Content:
+Overview of the dashboard's purpose and data source.
+
+- About the Revolut Dataset:
+Description of the anonymized spending data collected from Revolut users.
+
+- Where to Access the Dataset:
+Link to access the Revolut spending dataset.
+
+
+### Spending Trends Tab
 
 -   Monthly bar chart (Plot 1): Presents average monthly spending, with
     customisable labels and colors.
@@ -49,20 +68,20 @@ dataset.
 
     
 -   Age plot (Plot 3): Illustrates average spending by age group, with
-    customizable color schemes.
+    customisable color schemes.
     
 ![GIF Recording 2024-04-26 at 2 13 32 pm](https://github.com/HajerAlru/Assignment/assets/168104134/a0ef7dcf-9905-42ab-96ea-779828f25685)
 
 
 -   Spending comparison plot (Plot 4): Illustrates the average spending
     comparison between online and in-store purchases. Bars are
-    color-coded for visual clarity.
+    colour-coded for visual clarity.
     
 ![GIF Recording 2024-04-26 at 2 14 11 pm](https://github.com/HajerAlru/Assignment/assets/168104134/8cbe32d7-3142-4b23-b0c5-ee5063b1c8bf)
 
     
 -   Sector plot (Plot 5): Shows average spending across sectors, with
-    conditional coloring to highlight top sectors.
+    conditional colouring to highlight top sectors.
     
 ![GIF Recording 2024-04-26 at 2 14 53 pm](https://github.com/HajerAlru/Assignment/assets/168104134/10a49cf4-3b43-43ec-912d-633d07017b30)
 
