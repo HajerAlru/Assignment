@@ -38,38 +38,40 @@ dataset.
 
 -   Monthly bar chart (Plot 1): Presents average monthly spending, with
     customisable labels and colors.
-    
-![GIF Recording 2024-04-25 at 1 12 42 pm](https://github.com/HajerAlru/Assignment/assets/168104134/0c2b8b27-bed8-4da5-add9-132337694e63)
+
+![GIF Recording 2024-04-26 at 2 02 52 pm](https://github.com/HajerAlru/Assignment/assets/168104134/def1a937-f456-465e-9b10-37bded0f17ab)
 
 
 -   Trend plot (Plot 2): Displays spending trends over time, with
     annotations highlighting significant dates.
     
-![GIF Recording 2024-04-25 at 3 07 51 pm](https://github.com/HajerAlru/Assignment/assets/168104134/0b455aac-adf4-4545-a5e3-c90d36efe5d1)
+![GIF Recording 2024-04-26 at 2 03 18 pm](https://github.com/HajerAlru/Assignment/assets/168104134/31b2d5f7-9667-490e-98b6-fc3166b76308)
 
     
 -   Age plot (Plot 3): Illustrates average spending by age group, with
     customizable color schemes.
     
-![GIF Recording 2024-04-25 at 3 09 08 pm](https://github.com/HajerAlru/Assignment/assets/168104134/ad0a39e2-7ad2-4e44-b7bd-ca671a9406f6)
+![GIF Recording 2024-04-26 at 2 13 32 pm](https://github.com/HajerAlru/Assignment/assets/168104134/a0ef7dcf-9905-42ab-96ea-779828f25685)
+
 
 -   Spending comparison plot (Plot 4): Illustrates the average spending
     comparison between online and in-store purchases. Bars are
     color-coded for visual clarity.
     
-![GIF Recording 2024-04-25 at 3 10 24 pm](https://github.com/HajerAlru/Assignment/assets/168104134/5b8b299e-fdd3-4880-a0f1-3d063969adfa)
+![GIF Recording 2024-04-26 at 2 14 11 pm](https://github.com/HajerAlru/Assignment/assets/168104134/8cbe32d7-3142-4b23-b0c5-ee5063b1c8bf)
 
     
 -   Sector plot (Plot 5): Shows average spending across sectors, with
     conditional coloring to highlight top sectors.
     
-![GIF Recording 2024-04-25 at 3 11 13 pm](https://github.com/HajerAlru/Assignment/assets/168104134/1450142d-302a-4f54-b5f5-5691ac6b1f30)
+![GIF Recording 2024-04-26 at 2 14 53 pm](https://github.com/HajerAlru/Assignment/assets/168104134/10a49cf4-3b43-43ec-912d-633d07017b30)
 
 
 -   Line plot (Plot 6): Visualises spending trends for the top two spending sectors
     over time.
     
-![GIF Recording 2024-04-25 at 3 11 45 pm](https://github.com/HajerAlru/Assignment/assets/168104134/cd00efe7-4d45-467e-ba26-59756319bd3f)
+![GIF Recording 2024-04-26 at 2 15 25 pm](https://github.com/HajerAlru/Assignment/assets/168104134/7dfbc004-d5fa-4e16-ad25-deec1ca09521)
+
 
 ## Download Options
 
