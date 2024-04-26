@@ -57,18 +57,21 @@ Link to access the Revolut spending dataset.
 
 -   Monthly bar chart (Plot 1): Presents average monthly spending, with
     customisable labels and colors.
+    The chart shows that spending peaked in August, indicating higher spending during that month compared to others.
 
 ![GIF Recording 2024-04-26 at 2 02 52 pm](https://github.com/HajerAlru/Assignment/assets/168104134/def1a937-f456-465e-9b10-37bded0f17ab)
 
 
 -   Trend plot (Plot 2): Displays spending trends over time, with
     annotations highlighting significant dates.
+    The trend plot indicates a significant increase in spending on August 2nd and decrease in spending on September 18th.
     
 ![GIF Recording 2024-04-26 at 2 03 18 pm](https://github.com/HajerAlru/Assignment/assets/168104134/31b2d5f7-9667-490e-98b6-fc3166b76308)
 
     
 -   Age plot (Plot 3): Illustrates average spending by age group, with
     customisable color schemes.
+    The age plot reveals that the 18-34 age group tends to spend the most, followed by the 35-54 age group.
     
 ![GIF Recording 2024-04-26 at 2 13 32 pm](https://github.com/HajerAlru/Assignment/assets/168104134/a0ef7dcf-9905-42ab-96ea-779828f25685)
 
@@ -76,6 +79,7 @@ Link to access the Revolut spending dataset.
 -   Spending comparison plot (Plot 4): Illustrates the average spending
     comparison between online and in-store purchases. Bars are
     colour-coded for visual clarity.
+    The spending comparison plot shows that in-store spending consistently exceeds online spending throughout the observed period.
     
 ![GIF Recording 2024-04-26 at 2 14 11 pm](https://github.com/HajerAlru/Assignment/assets/168104134/8cbe32d7-3142-4b23-b0c5-ee5063b1c8bf)
 
