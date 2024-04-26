@@ -36,6 +36,7 @@ Once the repository is cloned, navigate into the project directory using the com
 
 c. Install Dependencies:
 Before running the dashboard, you need to make sure you have all the necessary dependencies installed. This typically involves R packages required by the dashboard.
+`Rscript -e "install.packages(c('shiny', 'plotly', 'tidyverse', 'readxl', 'reshape2', 'rsconnect'))"`
 
 d. Run the Dashboard:
 Once the dependencies are installed, you can run the dashboard using R. This command starts the local server that hosts the dashboard.
