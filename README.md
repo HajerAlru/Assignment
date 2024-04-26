@@ -154,6 +154,6 @@ maintainers at
 
 ## Acknowledgments
 
-I would like to express my gratitude to the University of Sunderland for
+I would like to express my gratitude to the University of Sunderland and my tutors for
 providing the educational resources and support necessary for the
 completion of this project.
