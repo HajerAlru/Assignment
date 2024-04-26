@@ -7,22 +7,47 @@ analysis.
 
 ## Accessing the Visualisation Product:
 
-You have two options to access the visualisation product: 
+You have three options to access the visualisation product: 
 
-1. **Run the R Code:** 
+1. **Visit the Shinyapps.io Link:** 
+The final visualisation product is deployed on shinyapps.io for convenient access. You can view and interact with the application directly by visiting the following URL:
+<https://datahajer.shinyapps.io/CETM25/>
+
+2. **Run the R Code:** 
 You can run the provided R code to launch the Shiny application locally on your machine. Ensure you have R and the required packages installed. Then, execute the `shinyApp` function in R after setting up the UI and server components. 
 
 To run the application, you will need RStudio installed on your machine. Follow these steps to access the visualisations: 
-1. Open RStudio. 
-2. Load the provided R code
-file. 
-3. Ensure you have the necessary R packages installed by running
+a. Open RStudio. 
+b. Load the provided R code file. 
+c. Ensure you have the necessary R packages installed by running
 the following commands in the R console:
 `install.packages("shiny")    install.packages("plotly")    install.packages("tidyverse")    install.packages("readxl")    install.packages("reshape2")    install.packages("rsconnect")`
 
-2. **Visit the Shinyapps.io Link:** 
-The final visualisation product is also deployed on shinyapps.io for convenient access. You can view and interact with the application directly by visiting the following URL:
-<https://datahajer.shinyapps.io/CETM25/> 
+3. **Running the Dashboard Locally**
+To run the dashboard locally, follow these steps:
+
+a. Clone the Repository:
+If you haven't already, you'll need to clone the repository that contains the dashboard project. This step downloads a copy of the project files to your local machine.
+`git clone https://github.com/HajerAlru/Assignment.git`
+
+b. Navigate to the Project Directory:
+Once the repository is cloned, navigate into the project directory using the command line. This is where all the project files are stored.
+`cd your-repository`
+
+c. Install Dependencies:
+Before running the dashboard, you need to make sure you have all the necessary dependencies installed. This typically involves R packages required by the dashboard.
+
+d. Run the Dashboard:
+Once the dependencies are installed, you can run the dashboard using R. This command starts the local server that hosts the dashboard.
+`R -e "shiny::runApp('./')"`
+
+e. Access the Dashboard:
+With the dashboard running locally, you can access it through your web browser. Open your preferred browser and go to URL specified in the terminal output.
+
+For example, the terminal might display a message like:
+`Listening on http://127.0.0.1:5832/`
+
+This will load the dashboard interface in your browser, allowing you to interact with it just like any other web application.
 
 ## Preprocessing
 
