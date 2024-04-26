@@ -78,7 +78,7 @@ dataset.
 You can download the plots in PNG format by hovering over the plot and
 clicking on the camera icon in the top left corner.
 
-![GIF Recording 2024-04-25 at 3 22 02 pm](https://github.com/HajerAlru/Assignment/assets/168104134/deae5ba0-e691-4b5f-a6d1-5ed64e000cdd)
+![GIF Recording 2024-04-26 at 2 21 01 pm](https://github.com/HajerAlru/Assignment/assets/168104134/be623639-4826-4253-b3e7-b9902e645755)
 
 
 ## Contributing
