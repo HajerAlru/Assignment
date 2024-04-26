@@ -1,5 +1,3 @@
-#setwd("/Users/hajer/Desktop/CETM25")
-
 library(shiny)
 library(tidyverse)
 library(readxl)
@@ -15,15 +13,16 @@ ui <- fluidPage(
     tags$link(rel = "stylesheet", href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"),
     tags$style(HTML("
                     /* Define custom CSS styles */
-                    .container-fluid { background-color: #f5f3fa; } /* Change page background color */
-                    .tab-content { background-color: #ffffff; } /* Change tab content background color */
-                    .well-panel-content { display: flex; align-items: center; } /* Use Flexbox to align items horizontally */
-                    .well-panel-content h3 { margin-right: 10px; margin-bottom: 15px; } /* Add margin between icon and heading */
-                    .summary-card { background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 30px; margin-bottom: 20px; } /* Adjusted padding */
+                    .container-fluid { background-color: #f5f3fa; } 
+                    .tab-content { background-color: #ffffff; } 
+                    .well-panel-content { display: flex; align-items: center; } 
+                    .well-panel-content h3 { margin-right: 10px; margin-bottom: 15px; } 
+                    .summary-card { background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 30px; margin-bottom: 20px; }
                     .summary-card h4 { color: #555555; margin-top: 0; }
                     .summary-card p { color: #777777; }
                     .summary-card i { font-size: 36px; color: #b35bab; }
                     .well-panel { border: 2px solid #b35bab; border-radius: 10px; padding: 30px; margin-bottom: 20px; }
+                    .irs-bar { background-color: #c8c8c8 !important; }
                     "))
   ),
   titlePanel("Revolut Spending Trends July - September 2023"),
@@ -80,7 +79,7 @@ ui <- fluidPage(
                  column(3, 
                         div(class = "summary-card",
                             tags$i(class = "fas fa-chart-line fa-3x"),
-                            h4("Overall Spending Trends"),
+                            h4("Spending Trends"),
                             p("Explore insights into spending patterns across various categories over time.")
                         )
                  ),
@@ -95,7 +94,7 @@ ui <- fluidPage(
                         div(class = "summary-card",
                             tags$i(class = "fas fa-user fa-3x"),
                             h4("About Age"),
-                            p("Gain insights into spending behavior based on different age demographics.")
+                            p("Gain insights into spending behaviour based on different age demographics.")
                         )
                  ),
                  column(3, 
@@ -130,7 +129,7 @@ ui <- fluidPage(
              fluidRow(
                column(4, 
                       plotlyOutput("spendingComparisonPlot", height = "300px"),
-                      sliderInput("DateRangeSlider", label = "", 
+                      sliderInput("dateRangeSlider", label = "", 
                                   min = min(spending_data$Date), max = max(spending_data$Date),
                                   value = c(min(spending_data$Date), max(spending_data$Date)),
                                   step = 1,
@@ -158,21 +157,61 @@ ui <- fluidPage(
 server <- function(input, output) {
   
   # Convert Date column to Date format
+  spending_data$Date <- as.Date(spending_data$Date, format = "%d %b %Y")
+  
+  # Extract month and year from the Date column
+  spending_data$Month <- format(spending_data$Date, "%Y-%b")
+  
+  # Calculate average spending by month
+  monthly_avg_spending <- spending_data %>% 
+    group_by(Month) %>% 
+    summarise(avg_spending = mean(Total.y))
+  
+  # Define custom month labels
+  custom_labels <- c("2023-Jul" = "Jul", "2023-Aug" = "Aug", "2023-Sep" = "Sep")
+  
+  # Define colors for each month
+  custom_colors <- c("2023-Jul" = "#c8c8c8", "2023-Aug" = "#b35bab", "2023-Sep" = "#c8c8c8")
+  
+  # Convert Month to a factor with ordered levels
+  monthly_avg_spending$Month <- factor(monthly_avg_spending$Month, levels = c("2023-Jul", "2023-Aug", "2023-Sep"))
+  
+  # Plot the bar chart for average monthly spending
+  output$monthlyBarChart <- renderPlotly({
+    # Generate the ggplot object
+    plot <- ggplot(monthly_avg_spending, aes(x = Month, y = avg_spending, fill = Month)) +
+      geom_bar(stat = "identity") +
+      scale_fill_manual(values = custom_colors) +  # Define fill colors
+      labs(title = "<span style='color:#b35bab;'>August</span> was the Biggest Spending Month",
+           y = "Average Spending",
+           x = "") +  # Empty string for x-axis label
+      scale_x_discrete(labels = custom_labels) +  # Set custom labels for x-axis
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 0, hjust = 1),  # Set angle to 0 for horizontal orientation
+            panel.grid.major = element_blank(),  # Remove major gridlines
+            panel.grid.minor = element_blank(),  # Remove minor gridlines
+            legend.position = "none")  # Remove legend
+    
+    # Convert ggplot object to plotly object
+    ggplotly(plot)
+  })
+  
+  # Convert Date column to Date format
   spending_data$Date <- as.Date(spending_data$Date, format = "%Y-%m-%d")
   
   # Define a function to create the trend plot
   createTrendPlot <- function(spending_data) {
     p <- ggplot(spending_data, aes(x = Date, y = Total.y)) +
-      geom_line(color = "#b35bab") +
+      geom_line(color = "#c8c8c8") +
       geom_point(data = spending_data %>% filter(Date %in% as.Date(c("2023-07-24", "2023-08-24"))), 
-                 aes(x = Date, y = Total.y), color = "#d46306", size = 2) + 
+                 aes(x = Date, y = Total.y), color = "#b7a8e3", size = 2) + 
       geom_point(data = spending_data %>% filter(Date %in% as.Date("2023-09-18")), 
-                 aes(x = Date, y = Total.y), color = "#d46306", size = 3) +
+                 aes(x = Date, y = Total.y), color = "#b7a8e3", size = 3) +
       geom_point(data = spending_data %>% filter(Date %in% as.Date("2023-08-02")), 
-                 aes(x = Date, y = Total.y), color = "#74D6A4", size = 3) +
+                 aes(x = Date, y = Total.y), color = "#b35bab", size = 3) +
       geom_point(data = spending_data %>% filter(Date %in% as.Date(c("2023-09-30", "2023-08-31", "2023-07-05"))), 
-                 aes(x = Date, y = Total.y), color = "#74D6A4", size = 2) +
-      labs(title = "Spending <span style='color:#74D6A4;'>increased</span> towards the beginning of\n each month and <span style='color:#d46306;'>decreased</span> mid-month",
+                 aes(x = Date, y = Total.y), color = "#b35bab", size = 2) +
+      labs(title = "Spending <span style='color:#b35bab;'>increased</span> towards the beginning of\n each month and <span style='color:#b7a8e3;'>decreased</span> mid-month",
            x = "",
            y = "Total Spending") +
       theme_minimal() +
@@ -183,9 +222,9 @@ server <- function(input, output) {
     # Add annotations without HTML-like formatting
     p <- p +
       annotate(geom = "text", x = as.Date("2023-09-18") -10, y = 139, 
-               label = "Lowest spending day was 18 Sept", color = "#d46306", size = 3) +
+               label = "Lowest spending day was 18 Sept", color = "#b7a8e3", size = 3) +
       annotate(geom = "text", x = as.Date("2023-08-02"), y = 170, 
-               label = "Spending peaked 02 Aug", color = "#74D6A4", size = 3) +
+               label = "Spending peaked 02 Aug", color = "#b35bab", size = 3) +
       annotate(geom = "text", x = as.Date("2023-07-01") + 35, y = 175,
                label = "",
                color = "black", size = 3.5, hjust = 0, vjust = 0)
@@ -246,103 +285,15 @@ server <- function(input, output) {
     return(p)
   }
   
-  
   # Render the line plot
   output$linePlot <- renderPlotly({
     createLinePlot(spending_data)
   })
   
- 
-  # Define a function to create the sector plot
-  createSectorPlot <- function(filtered_data) {
-    # Calculate the average spending for each sector
-    average_spending_sector <- filtered_data %>%
-      summarise(across(`Automotive Fuel`:`Travel and accommodation`, ~ mean(., na.rm = TRUE)))
-    
-    # Reshape data for horizontal bar plot
-    average_spending_sector_long <- average_spending_sector %>%
-      pivot_longer(cols = everything(), names_to = "Sector", values_to = "Average_Spending")
-    
-    # Find the two longest bars
-    max_values <- tail(sort(average_spending_sector_long$Average_Spending), 2)
-    
-    # Create color vector based on condition
-    colors <- ifelse(average_spending_sector_long$Average_Spending %in% max_values, "#b35bab", "#e3c1e0")
-    
-    # Create the interactive horizontal bar plot using Plotly with conditional coloring
-    p <- plot_ly(average_spending_sector_long, x = ~Average_Spending, y = ~reorder(Sector, Average_Spending), type = 'bar', 
-            marker = list(color = colors, line = list(color = 'black', width = 0.1)), 
-            # Add text labels inside the bars
-            text = ~paste(Sector), 
-            textposition = "inside") %>%
-      layout(title = list(
-        text = "<span style='color:#000000;'> Users Spend More on <span style='color:#b35bab;'>Automotive Fuel</span> and <span style='color:#b35bab;'>Retail</span>",
-        font = list(size = 17)  # Adjust the title font size
-      ),
-      xaxis = list(title = "Average Spending", showgrid = FALSE),
-      yaxis = list(title = "", showgrid = FALSE, showticklabels = FALSE),
-      showlegend = FALSE)
-    
-    return(p)
-  }
-  
-  # Render the horizontal bar plot for total spending by sector
-  output$sectorPlot <- renderPlotly({
-    # Filter data based on selected date range
-    filtered_data <- spending_data %>%
-      filter(Date >= input$datesRangeSlider[1] & Date <= input$datesRangeSlider[2])
-    
-    # Create the sector plot using the filtered data
-    createSectorPlot(filtered_data)
-  })
-  
-  
-  # Define a function to create the age plot
-  createAgePlot <- function(filtered_data) {
-    # Calculate the average spending for each age group
-    average_spending <- filtered_data %>%
-      summarise(across(`18-34`:`55+`, ~mean(., na.rm = TRUE)))
-    
-    # Reshape data for bar plot
-    average_spending_long <- average_spending %>%
-      pivot_longer(cols = everything(), names_to = "Age_Group", values_to = "Average_Spending")
-    
-    # Define colors for each age group
-    colors <- c("18-34" = "#b35bab", "35-54" = "#e3c1e0", "55+" = "#e3c1e0")
-    
-    # Plot the average spending for each age group in a bar chart
-    p <- plot_ly(average_spending_long, x = ~Age_Group, y = ~Average_Spending, type = 'bar', 
-                 color = ~Age_Group, colors = colors) %>%
-      layout(title = list(
-        text = "<span style='color:#000000;'> <span style='color:#b35bab;'>18 - 34</span> year olds are the biggest spenders</span>",
-        x = 0.1,
-        xanchor = "left",  # Anchor the title to the left
-        font = list(
-          size = 17  # Adjust the title font size
-        )
-      ),
-      xaxis = list(title = "Age Group", showgrid = FALSE),
-      yaxis = list(title = "Average Spending", showgrid = FALSE),
-      showlegend = FALSE)  # Remove the legend
-    
-    return(p)
-  }
-  
-  # Render the age plot
-  output$agePlot <- renderPlotly({
-    # Filter the spending data based on the selected date range
-    filtered_data <- spending_data %>%
-      filter(Date >= input$ageRangeSlider[1] & Date <= input$ageRangeSlider[2])
-    
-    # Call createAgePlot within renderPlotly to ensure it's reactive
-    createAgePlot(filtered_data)
-  })
-  
-  
   # Reactive expression to filter data based on slider input
   filtered_data <- reactive({
     spending_data %>%
-      filter(Date >= input$DateRangeSlider[1] & Date <= input$DateRangeSlider[2])
+      filter(Date >= input$dateRangeSlider[1] & Date <= input$dateRangeSlider[2])
   })
   
   # Calculate the average online and in-store spending for the selected date range
@@ -364,11 +315,11 @@ server <- function(input, output) {
       geom_text(aes(label = paste0(round(Average), "%")), 
                 nudge_y = 2, # Adjust this value to move the labels up or down
                 size = 3) +
-      labs(title = "<span style='color:#b35bab;'>In-store</span> Spending Consistently Exceeded <span style='color:#e3c1e0;'>Online</span> \nSpending",
+      labs(title = "<span style='color:#b35bab;'>In-store</span> Spending Consistently Exceeded Online \nSpending",
            x = "",
            y = "") +
       theme_minimal() +
-      scale_fill_manual(values = c("Online" = "#e3c1e0", "In-store" = "#b35bab")) +  # Color the bars
+      scale_fill_manual(values = c("Online" = "#c8c8c8", "In-store" = "#b35bab")) +  # Color the bars
       theme(panel.grid.major = element_blank(),  # Remove major gridlines
             panel.grid.minor = element_blank(),  # Remove minor gridlines
             legend.position = "none")  # Remove the legend
@@ -377,48 +328,91 @@ server <- function(input, output) {
     ggplotly(p) %>% layout(yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
   })
   
-  # Convert Date column to Date format
-  spending_data$Date <- as.Date(spending_data$Date, format = "%d %b %Y")
-  
-  # Extract month and year from the Date column
-  spending_data$Month <- format(spending_data$Date, "%Y-%b")
-  
-  # Calculate average spending by month
-  monthly_avg_spending <- spending_data %>% 
-    group_by(Month) %>% 
-    summarise(avg_spending = mean(Total.y))
-  
-  # Define custom month labels
-  custom_labels <- c("2023-Jul" = "Jul", "2023-Aug" = "Aug", "2023-Sep" = "Sep")
-  
-  # Define colors for each month
-  custom_colors <- c("2023-Jul" = "#e3c1e0", "2023-Aug" = "#b35bab", "2023-Sep" = "#e3c1e0")
-  
-  # Convert Month to a factor with ordered levels
-  monthly_avg_spending$Month <- factor(monthly_avg_spending$Month, levels = c("2023-Jul", "2023-Aug", "2023-Sep"))
-  
-  # Plot the bar chart for average monthly spending
-  output$monthlyBarChart <- renderPlotly({
-    # Generate the ggplot object
-    plot <- ggplot(monthly_avg_spending, aes(x = Month, y = avg_spending, fill = Month)) +
-      geom_bar(stat = "identity") +
-      scale_fill_manual(values = custom_colors) +  # Define fill colors
-      labs(title = "<span style='color:#b35bab;'>August</span> was the Biggest Spending Month",
-           y = "Average Spending",
-           x = "") +  # Empty string for x-axis label
-      scale_x_discrete(labels = custom_labels) +  # Set custom labels for x-axis
-      theme_minimal() +
-      theme(axis.text.x = element_text(angle = 0, hjust = 1),  # Set angle to 0 for horizontal orientation
-            panel.grid.major = element_blank(),  # Remove major gridlines
-            panel.grid.minor = element_blank(),  # Remove minor gridlines
-            legend.position = "none")  # Remove legend
+  # Define a function to create the age plot
+  createAgePlot <- function(filtered_data) {
+    # Calculate the average spending for each age group
+    average_spending <- filtered_data %>%
+      summarise(across(`18-34`:`55+`, ~mean(., na.rm = TRUE)))
     
-    # Convert ggplot object to plotly object
-    ggplotly(plot)
+    # Reshape data for bar plot
+    average_spending_long <- average_spending %>%
+      pivot_longer(cols = everything(), names_to = "Age_Group", values_to = "Average_Spending")
+    
+    # Define colors for each age group
+    colors <- c("18-34" = "#b35bab", "35-54" = "#c8c8c8", "55+" = "#c8c8c8")
+    
+    # Plot the average spending for each age group in a bar chart
+    p <- plot_ly(average_spending_long, x = ~Age_Group, y = ~Average_Spending, type = 'bar', 
+                 color = ~Age_Group, colors = colors) %>%
+      layout(title = list(
+        text = "<span style='color:#000000;'> <span style='color:#b35bab;'>18 - 34</span> year olds are the biggest spenders</span>",
+        x = 0.1,
+        xanchor = "left", 
+        font = list(
+          size = 17 
+        )
+      ),
+      xaxis = list(title = "Age Group", showgrid = FALSE),
+      yaxis = list(title = "Average Spending", showgrid = FALSE),
+      showlegend = FALSE) 
+    
+    return(p)
+  }
+  
+  # Render the age plot
+  output$agePlot <- renderPlotly({
+    
+    # Filter the spending data based on the selected date range
+    filtered_data <- spending_data %>%
+      filter(Date >= input$ageRangeSlider[1] & Date <= input$ageRangeSlider[2])
+
+    createAgePlot(filtered_data)
+  })
+  
+  # Define a function to create the sector plot
+  createSectorPlot <- function(filtered_data) {
+    # Calculate the average spending for each sector
+    average_spending_sector <- filtered_data %>%
+      summarise(across(`Automotive Fuel`:`Travel and accommodation`, ~ mean(., na.rm = TRUE)))
+    
+    # Reshape data for horizontal bar plot
+    average_spending_sector_long <- average_spending_sector %>%
+      pivot_longer(cols = everything(), names_to = "Sector", values_to = "Average_Spending")
+    
+    # Find the two longest bars
+    max_values <- tail(sort(average_spending_sector_long$Average_Spending), 2)
+    
+    # Create colour vector based on condition
+    colors <- ifelse(average_spending_sector_long$Average_Spending %in% max_values, "#b35bab", "#c8c8c8")
+    
+    # Create the interactive horizontal bar plot using Plotly with conditional coloring
+    p <- plot_ly(average_spending_sector_long, x = ~Average_Spending, y = ~reorder(Sector, Average_Spending), type = 'bar', 
+                 marker = list(color = colors, line = list(color = 'black', width = 0.1)), 
+                 # Add text labels inside the bars
+                 text = ~paste(Sector), 
+                 textposition = "inside") %>%
+      layout(title = list(
+        text = "<span style='color:#000000;'> Users Spend More on <span style='color:#b35bab;'>Automotive Fuel</span> and <span style='color:#b35bab;'>Retail</span>",
+        font = list(size = 17)  # Adjust the title font size
+      ),
+      xaxis = list(title = "Average Spending", showgrid = FALSE),
+      yaxis = list(title = "", showgrid = FALSE, showticklabels = FALSE),
+      showlegend = FALSE)
+    
+    return(p)
+  }
+  
+  # Render the horizontal bar plot for total spending by sector
+  output$sectorPlot <- renderPlotly({
+    # Filter data based on selected date range
+    filtered_data <- spending_data %>%
+      filter(Date >= input$datesRangeSlider[1] & Date <= input$datesRangeSlider[2])
+    
+    # Create the sector plot using the filtered data
+    createSectorPlot(filtered_data)
   })
   
 }
   
-
 # Run the application
 shinyApp(ui = ui, server = server)
