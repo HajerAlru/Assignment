@@ -18,7 +18,7 @@ To run the application, you will need RStudio installed on your machine. Follow 
 file. 
 3. Ensure you have the necessary R packages installed by running
 the following commands in the R console:
-` install.packages("shiny")    install.packages("plotly")    install.packages("tidyverse")    install.packages("readxl")    install.packages("reshape2")    install.packages("rsconnect")`
+`install.packages("shiny")    install.packages("plotly")    install.packages("tidyverse")    install.packages("readxl")    install.packages("reshape2")    install.packages("rsconnect")`
 
 2. **Visit the Shinyapps.io Link:** 
 The final visualisation product is also deployed on shinyapps.io for convenient access. You can view and interact with the application directly by visiting the following URL:
