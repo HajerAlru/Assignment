@@ -96,7 +96,7 @@ Link to access the Revolut spending dataset.
     annotations highlighting significant dates.
     The trend plot indicates a significant increase in spending on August 2nd and decrease in spending on September 18th.
     
-![GIF Recording 2024-04-26 at 2 03 18 pm](https://github.com/HajerAlru/Assignment/assets/168104134/31b2d5f7-9667-490e-98b6-fc3166b76308)
+![GIF Recording 2024-04-27 at 11 03 42 am](https://github.com/HajerAlru/Assignment/assets/168104134/8b7db5f3-c4e9-4144-b2e6-91bcf9736b74)
 
     
 -   Age plot (Plot 3): Illustrates average spending by age group, with
@@ -131,7 +131,7 @@ Link to access the Revolut spending dataset.
 You can download the plots in PNG format by hovering over the plot and
 clicking on the camera icon in the top left corner.
 
-![GIF Recording 2024-04-26 at 2 21 01 pm](https://github.com/HajerAlru/Assignment/assets/168104134/be623639-4826-4253-b3e7-b9902e645755)
+![GIF Recording 2024-04-27 at 11 06 13 am](https://github.com/HajerAlru/Assignment/assets/168104134/0994f1df-86c2-42c2-9d4c-6bf843480138)
 
 
 ## Contributing
