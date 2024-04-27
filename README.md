@@ -17,6 +17,7 @@ The final visualisation product is deployed on shinyapps.io for convenient acces
 You can run the provided R code to launch the Shiny application locally on your machine. Ensure you have R and the required packages installed. Then, execute the `shinyApp` function in R after setting up the UI and server components. 
 
 To run the application, you will need RStudio installed on your machine. Follow these steps to access the visualisations: 
+
 a. Open RStudio. 
 
 b. Load the provided R code file. 
