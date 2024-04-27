@@ -27,7 +27,7 @@ the following commands in the R console:
 
 `install.packages("shiny")    install.packages("plotly")    install.packages("tidyverse")    install.packages("readxl")    install.packages("reshape2")    install.packages("rsconnect")`
 
-3. **Running the Dashboard Locally**
+3. **Running the Dashboard Locally:**
 To run the dashboard locally, follow these steps:
 
 a. Clone the Repository:
