@@ -18,9 +18,12 @@ You can run the provided R code to launch the Shiny application locally on your 
 
 To run the application, you will need RStudio installed on your machine. Follow these steps to access the visualisations: 
 a. Open RStudio. 
+
 b. Load the provided R code file. 
+
 c. Ensure you have the necessary R packages installed by running
 the following commands in the R console:
+
 `install.packages("shiny")    install.packages("plotly")    install.packages("tidyverse")    install.packages("readxl")    install.packages("reshape2")    install.packages("rsconnect")`
 
 3. **Running the Dashboard Locally**
