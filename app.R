@@ -204,14 +204,14 @@ server <- function(input, output) {
     p <- ggplot(spending_data, aes(x = Date, y = Total.y)) +
       geom_line(color = "#c8c8c8") +
       geom_point(data = spending_data %>% filter(Date %in% as.Date(c("2023-07-24", "2023-08-24"))), 
-                 aes(x = Date, y = Total.y), color = "#b7a8e3", size = 2) + 
+                 aes(x = Date, y = Total.y), color = "#899499", size = 2) + 
       geom_point(data = spending_data %>% filter(Date %in% as.Date("2023-09-18")), 
-                 aes(x = Date, y = Total.y), color = "#b7a8e3", size = 3) +
+                 aes(x = Date, y = Total.y), color = "#899499", size = 3) +
       geom_point(data = spending_data %>% filter(Date %in% as.Date("2023-08-02")), 
                  aes(x = Date, y = Total.y), color = "#b35bab", size = 3) +
       geom_point(data = spending_data %>% filter(Date %in% as.Date(c("2023-09-30", "2023-08-31", "2023-07-05"))), 
                  aes(x = Date, y = Total.y), color = "#b35bab", size = 2) +
-      labs(title = "Spending <span style='color:#b35bab;'>increased</span> towards the beginning of\n each month and <span style='color:#b7a8e3;'>decreased</span> mid-month",
+      labs(title = "Spending <span style='color:#b35bab;'>increased</span> towards the beginning of\n each month and <span style='color:#899499;'>decreased</span> mid-month",
            x = "",
            y = "Total Spending") +
       theme_minimal() +
@@ -222,7 +222,7 @@ server <- function(input, output) {
     # Add annotations without HTML-like formatting
     p <- p +
       annotate(geom = "text", x = as.Date("2023-09-18") -10, y = 139, 
-               label = "Lowest spending day was 18 Sept", color = "#b7a8e3", size = 3) +
+               label = "Lowest spending day was 18 Sept", color = "#899499", size = 3) +
       annotate(geom = "text", x = as.Date("2023-08-02"), y = 170, 
                label = "Spending peaked 02 Aug", color = "#b35bab", size = 3) +
       annotate(geom = "text", x = as.Date("2023-07-01") + 35, y = 175,
