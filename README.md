@@ -100,7 +100,7 @@ Link to access the Revolut spending dataset.
 
     
 -   Age plot (Plot 3): Illustrates average spending by age group, with
-    customisable color schemes. Hover over the bars to view specific spending amounts for each age group. Move the slider to adjust the dates and observe spending trends over different time periods
+    customisable color schemes. Hover over the bars to view specific spending amounts for each age group. Move the slider to adjust the dates and observe spending trends over different time periods.
     The chart reveals that the 18-34 age group tends to spend the most, followed by the 35-54 age group.
     
 ![GIF Recording 2024-04-26 at 2 13 32 pm](https://github.com/HajerAlru/Assignment/assets/168104134/a0ef7dcf-9905-42ab-96ea-779828f25685)
