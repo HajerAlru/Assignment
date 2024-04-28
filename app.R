@@ -240,8 +240,6 @@ server <- function(input, output) {
     
     
     # Filter data 
-    july_17 <- spending_data %>% filter(Date == as.Date("2023-07-17"))
-    sept_20 <- spending_data %>% filter(Date == as.Date("2023-09-20"))
     july_17_data <- spending_data %>% filter(Date <= as.Date("2023-07-17"))
     sept_20_data <- spending_data %>% filter(Date >= as.Date("2023-09-20"))
     between_data <- spending_data %>% filter(Date >= as.Date("2023-07-17") & Date <= as.Date("2023-09-20"))
