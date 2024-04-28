@@ -68,7 +68,7 @@ dataset.
 ### General Tab
 
 - Navigating the Dashboard:
-Provides guidance on exploring various charts and graphs for insights into spending behavior.
+Provides guidance on exploring various charts and graphs for insights into spending behaviour.
 
 - About Revolut:
 Brief information about Revolut, the financial technology company providing the dataset.
@@ -77,7 +77,7 @@ Brief information about Revolut, the financial technology company providing the 
 Overview of the dashboard's purpose and data source.
 
 - About the Revolut Dataset:
-Description of the anonymized spending data collected from Revolut users.
+Description of the anonymised spending data collected from Revolut users.
 
 - Where to Access the Dataset:
 Link to access the Revolut spending dataset.
