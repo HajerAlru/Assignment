@@ -100,7 +100,7 @@ Link to access the Revolut spending dataset.
 
     
 -   Age plot (Plot 3): Illustrates average spending by age group, with
-    customisable color schemes.
+    customisable color schemes. Hover over the bars to view specific spending amounts for each age group. Move the slider to adjust the dates and observe spending trends over different time periods
     The age plot reveals that the 18-34 age group tends to spend the most, followed by the 35-54 age group.
     
 ![GIF Recording 2024-04-26 at 2 13 32 pm](https://github.com/HajerAlru/Assignment/assets/168104134/a0ef7dcf-9905-42ab-96ea-779828f25685)
@@ -108,20 +108,21 @@ Link to access the Revolut spending dataset.
 
 -   Spending comparison plot (Plot 4): Illustrates the average spending
     comparison between online and in-store purchases. Bars are
-    colour-coded for visual clarity.
+    colour-coded for visual clarity. Hover over the bars to view specific spending amounts for each category. Move the slider to adjust the dates and observe spending trends over different time periods. 
     The spending comparison plot shows that in-store spending consistently exceeds online spending throughout the observed period.
     
 ![GIF Recording 2024-04-26 at 2 14 11 pm](https://github.com/HajerAlru/Assignment/assets/168104134/8cbe32d7-3142-4b23-b0c5-ee5063b1c8bf)
 
     
 -   Sector plot (Plot 5): Shows average spending across sectors, with
-    conditional colouring to highlight top sectors.
+    conditional colouring to highlight top sectors. Hover over the bars to view specific spending amounts for each sector. Move the slider to adjust the dates and observe spending trends over different time periods.
+    The sector plot indicates that automotive fuel and retail are the top two sectors. 
     
 ![GIF Recording 2024-04-26 at 2 14 53 pm](https://github.com/HajerAlru/Assignment/assets/168104134/10a49cf4-3b43-43ec-912d-633d07017b30)
 
 
 -   Line plot (Plot 6): Visualises spending trends for the top two spending sectors
-    over time.
+    over time. Hover over the lines to compare spending patterns between the selected sectors.
     
 ![GIF Recording 2024-04-26 at 2 15 25 pm](https://github.com/HajerAlru/Assignment/assets/168104134/7dfbc004-d5fa-4e16-ad25-deec1ca09521)
 
