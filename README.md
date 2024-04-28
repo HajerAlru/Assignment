@@ -86,7 +86,7 @@ Link to access the Revolut spending dataset.
 ### Spending Trends Tab
 
 -   Monthly bar chart (Plot 1): Presents average monthly spending, with
-    customisable labels and colors.
+    customisable labels and colors. Hover over the bars to view detailed spending data for each month.
     The chart shows that spending peaked in August, indicating higher spending during that month compared to others.
 
 ![GIF Recording 2024-04-26 at 2 02 52 pm](https://github.com/HajerAlru/Assignment/assets/168104134/def1a937-f456-465e-9b10-37bded0f17ab)
