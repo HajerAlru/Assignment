@@ -93,7 +93,7 @@ Link to access the Revolut spending dataset.
 
 
 -   Trend plot (Plot 2): Displays spending trends over time, with
-    annotations highlighting significant dates.
+    annotations highlighting significant dates. Hover over the line to view specific spending amounts and dates.
     The trend plot indicates a significant increase in spending on August 2nd and decrease in spending on September 18th.
     
 ![GIF Recording 2024-04-27 at 11 03 42 am](https://github.com/HajerAlru/Assignment/assets/168104134/8b7db5f3-c4e9-4144-b2e6-91bcf9736b74)
