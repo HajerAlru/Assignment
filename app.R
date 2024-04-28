@@ -35,7 +35,7 @@ ui <- fluidPage(
                             h3("Navigating the Dashboard"),
                             tags$i(class = "fas fa-info-circle fa-3x")
                         ),
-                        "Click on the 'Spending Trends' tab to explore the various charts and graphs to gain insights into different aspects of spending behavior."
+                        "Click on the 'Spending Trends' tab to explore the various charts and graphs to gain insights into different aspects of spending behaviour."
                       )
                ),
                column(6, 
@@ -62,7 +62,7 @@ ui <- fluidPage(
                             h3("About the Revolut Dataset"),
                             tags$i(class = "fas fa-database fa-3x")
                         ),
-                        "The Revolut dataset contains anonymised spending data collected from Revolut users."
+                        "The Revolut dataset contains anonymised spending data collected from Revolut users in the UK."
                       )
                ),
                column(6, 
@@ -181,16 +181,16 @@ server <- function(input, output) {
     # Generate the ggplot object
     plot <- ggplot(monthly_avg_spending, aes(x = Month, y = avg_spending, fill = Month)) +
       geom_bar(stat = "identity") +
-      scale_fill_manual(values = custom_colors) +  # Define fill colors
+      scale_fill_manual(values = custom_colors) + 
       labs(title = "<span style='color:#b35bab;'>August</span> was the Biggest Spending Month",
            y = "Average Spending",
            x = "") +  # Empty string for x-axis label
-      scale_x_discrete(labels = custom_labels) +  # Set custom labels for x-axis
+      scale_x_discrete(labels = custom_labels) +  
       theme_minimal() +
-      theme(axis.text.x = element_text(angle = 0, hjust = 1),  # Set angle to 0 for horizontal orientation
-            panel.grid.major = element_blank(),  # Remove major gridlines
-            panel.grid.minor = element_blank(),  # Remove minor gridlines
-            legend.position = "none")  # Remove legend
+      theme(axis.text.x = element_text(angle = 0, hjust = 1),  
+            panel.grid.major = element_blank(),  
+            panel.grid.minor = element_blank(),  
+            legend.position = "none")  
     
     # Convert ggplot object to plotly object
     ggplotly(plot)
@@ -216,11 +216,7 @@ server <- function(input, output) {
            y = "Total Spending") +
       theme_minimal() +
       theme(panel.grid.major = element_blank(),
-            panel.grid.minor = element_blank())
-  
-    
-    # Add annotations without HTML-like formatting
-    p <- p +
+            panel.grid.minor = element_blank()) +
       annotate(geom = "text", x = as.Date("2023-09-18") -10, y = 139, 
                label = "Lowest spending day was 18 Sept", color = "#899499", size = 3) +
       annotate(geom = "text", x = as.Date("2023-08-02"), y = 170, 
@@ -270,9 +266,9 @@ server <- function(input, output) {
            linetype = "Sector",
            shape = "Sector") +
       theme_minimal() +
-      theme(panel.grid.major = element_blank(),  # Remove major gridlines
+      theme(panel.grid.major = element_blank(),  
             panel.grid.minor = element_blank(),
-            legend.position = "none",  # Remove legend
+            legend.position = "none",  
       ) +
       # Add annotations with custom colors
       annotate("text", x = as.Date("2023-07-17") + 72 , y =  178, 
@@ -313,18 +309,18 @@ server <- function(input, output) {
     p <- ggplot(plot_data, aes(x = Category, y = Average, fill = Category)) +
       geom_bar(stat = "identity") +
       geom_text(aes(label = paste0(round(Average), "%")), 
-                nudge_y = 2, # Adjust this value to move the labels up or down
+                nudge_y = 2,
                 size = 3) +
       labs(title = "<span style='color:#b35bab;'>In-store</span> Spending Consistently Exceeded Online \nSpending",
            x = "",
            y = "") +
       theme_minimal() +
-      scale_fill_manual(values = c("Online" = "#c8c8c8", "In-store" = "#b35bab")) +  # Color the bars
-      theme(panel.grid.major = element_blank(),  # Remove major gridlines
-            panel.grid.minor = element_blank(),  # Remove minor gridlines
-            legend.position = "none")  # Remove the legend
+      scale_fill_manual(values = c("Online" = "#c8c8c8", "In-store" = "#b35bab")) + 
+      theme(panel.grid.major = element_blank(), 
+            panel.grid.minor = element_blank(), 
+            legend.position = "none")  
     
-    # Convert ggplot to plotly and remove y-axis
+    # Convert ggplot to plotly 
     ggplotly(p) %>% layout(yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
   })
   
@@ -385,15 +381,14 @@ server <- function(input, output) {
     # Create colour vector based on condition
     colors <- ifelse(average_spending_sector_long$Average_Spending %in% max_values, "#b35bab", "#c8c8c8")
     
-    # Create the interactive horizontal bar plot using Plotly with conditional coloring
+    # Create the interactive horizontal bar plot using Plotly with conditional colouring
     p <- plot_ly(average_spending_sector_long, x = ~Average_Spending, y = ~reorder(Sector, Average_Spending), type = 'bar', 
                  marker = list(color = colors, line = list(color = 'black', width = 0.1)), 
-                 # Add text labels inside the bars
                  text = ~paste(Sector), 
                  textposition = "inside") %>%
       layout(title = list(
         text = "<span style='color:#000000;'> Users Spend More on <span style='color:#b35bab;'>Automotive Fuel</span> and <span style='color:#b35bab;'>Retail</span>",
-        font = list(size = 17)  # Adjust the title font size
+        font = list(size = 17) 
       ),
       xaxis = list(title = "Average Spending", showgrid = FALSE),
       yaxis = list(title = "", showgrid = FALSE, showticklabels = FALSE),
