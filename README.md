@@ -116,7 +116,7 @@ Link to access the Revolut spending dataset.
     The plot shows that in-store spending consistently exceeds online spending throughout the observed period.
     
 
-![GIF Recording 2024-04-29 at 5 51 36 pm](https://github.com/HajerAlru/Assignment/assets/168104134/624dab09-8f85-4051-970c-ab883b04471a)
+![GIF Recording 2024-04-29 at 5 52 19 pm](https://github.com/HajerAlru/Assignment/assets/168104134/d8c3b544-ce3b-4069-839f-72288a20b0e0)
 
     
 -   Sector plot (Plot 5): Shows average spending across sectors, with
