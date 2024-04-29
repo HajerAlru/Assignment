@@ -89,7 +89,7 @@ Link to access the Revolut spending dataset.
     customisable labels and colors. Hover over the bars to view detailed spending data for each month.
     The chart shows that spending peaked in August, indicating higher spending during that month compared to others.
 
-![GIF Recording 2024-04-26 at 2 02 52 pm](https://github.com/HajerAlru/Assignment/assets/168104134/def1a937-f456-465e-9b10-37bded0f17ab)
+![GIF Recording 2024-04-29 at 5 50 46 pm](https://github.com/HajerAlru/Assignment/assets/168104134/8eef323f-4b68-444b-9dd0-5b3df2b243de)
 
 
 -   Trend plot (Plot 2): Displays spending trends over time, with
@@ -97,7 +97,7 @@ Link to access the Revolut spending dataset.
 
     The plot indicates a significant increase in spending on August 2nd and decrease in spending on September 18th.
     
-![GIF Recording 2024-04-27 at 11 03 42 am](https://github.com/HajerAlru/Assignment/assets/168104134/8b7db5f3-c4e9-4144-b2e6-91bcf9736b74)
+![GIF Recording 2024-04-29 at 5 51 07 pm](https://github.com/HajerAlru/Assignment/assets/168104134/f86a3650-c4bc-4b8a-9d53-08ae9361dff4)
 
     
 -   Age plot (Plot 3): Illustrates average spending by age group, with
@@ -105,7 +105,8 @@ Link to access the Revolut spending dataset.
 
     The chart reveals that the 18-34 age group tends to spend the most, followed by the 35-54 age group.
     
-![GIF Recording 2024-04-26 at 2 13 32 pm](https://github.com/HajerAlru/Assignment/assets/168104134/a0ef7dcf-9905-42ab-96ea-779828f25685)
+
+![GIF Recording 2024-04-29 at 5 51 36 pm](https://github.com/HajerAlru/Assignment/assets/168104134/b14bbc21-48e1-4195-ae7e-1b37b07b4d7f)
 
 
 -   Spending comparison plot (Plot 4): Illustrates the average spending
@@ -114,7 +115,8 @@ Link to access the Revolut spending dataset.
 
     The plot shows that in-store spending consistently exceeds online spending throughout the observed period.
     
-![GIF Recording 2024-04-26 at 2 14 11 pm](https://github.com/HajerAlru/Assignment/assets/168104134/8cbe32d7-3142-4b23-b0c5-ee5063b1c8bf)
+
+![GIF Recording 2024-04-29 at 5 51 36 pm](https://github.com/HajerAlru/Assignment/assets/168104134/624dab09-8f85-4051-970c-ab883b04471a)
 
     
 -   Sector plot (Plot 5): Shows average spending across sectors, with
@@ -122,7 +124,7 @@ Link to access the Revolut spending dataset.
 
     The plot indicates that automotive fuel and retail are the top two sectors. 
     
-![GIF Recording 2024-04-26 at 2 14 53 pm](https://github.com/HajerAlru/Assignment/assets/168104134/10a49cf4-3b43-43ec-912d-633d07017b30)
+![GIF Recording 2024-04-29 at 5 52 47 pm](https://github.com/HajerAlru/Assignment/assets/168104134/7768d6b0-f2af-4d4d-8941-498c4b9dc931)
 
 
 -   Line plot (Plot 6): Visualises spending trends for the top two spending sectors
@@ -130,7 +132,7 @@ Link to access the Revolut spending dataset.
 
     The plot shows that retail was the top spending sector, surpassing automotive fuel, in the beginning of July and after mid-September.
     
-![GIF Recording 2024-04-26 at 2 15 25 pm](https://github.com/HajerAlru/Assignment/assets/168104134/7dfbc004-d5fa-4e16-ad25-deec1ca09521)
+![GIF Recording 2024-04-29 at 5 53 27 pm](https://github.com/HajerAlru/Assignment/assets/168104134/7b860696-d0d0-4806-bdb7-f20b6797cfdd)
 
 
 ## Download Options
@@ -138,7 +140,7 @@ Link to access the Revolut spending dataset.
 You can download the plots in PNG format by hovering over the plot and
 clicking on the camera icon in the top left corner.
 
-![GIF Recording 2024-04-27 at 11 06 13 am](https://github.com/HajerAlru/Assignment/assets/168104134/0994f1df-86c2-42c2-9d4c-6bf843480138)
+![GIF Recording 2024-04-29 at 5 54 32 pm](https://github.com/HajerAlru/Assignment/assets/168104134/f4400f31-a844-483d-8dfc-cf98893879bb)
 
 
 ## Contributing
