@@ -176,6 +176,10 @@ server <- function(input, output) {
   # Convert Month to a factor with ordered levels
   monthly_avg_spending$Month <- factor(monthly_avg_spending$Month, levels = c("2023-Jul", "2023-Aug", "2023-Sep"))
   
+  library(plotly)
+  
+ library(plotly)
+
   # Plot the bar chart for average monthly spending
   output$monthlyBarChart <- renderPlotly({
     # Generate the ggplot object
@@ -192,8 +196,22 @@ server <- function(input, output) {
             panel.grid.minor = element_blank(),  
             legend.position = "none")  
     
+    # Add reference point annotation
+    annotation <- list(
+      xref = "paper",
+      yref = "paper",
+      x = 0.2,
+      y = 1.01,  # Adjust the y position to move the annotation below the title
+      xanchor = "center",
+      yanchor = "bottom",
+      text = "<span style='font-size: 9.5px; color: blue;'>Index 100 = Feb 2020 average</span>",
+      showarrow = FALSE
+    )
+    
     # Convert ggplot object to plotly object
-    ggplotly(plot)
+    plotly_chart <- ggplotly(plot) %>% layout(annotations = list(annotation))
+    
+    plotly_chart
   })
   
   # Convert Date column to Date format
@@ -219,15 +237,14 @@ server <- function(input, output) {
             panel.grid.minor = element_blank()) +
       annotate(geom = "text", x = as.Date("2023-09-18") -10, y = 139, 
                label = "Lowest spending day was 18 Sept", color = "#899499", size = 3) +
-      annotate(geom = "text", x = as.Date("2023-08-02"), y = 170, 
+      annotate(geom = "text", x = as.Date("2023-08-02"), y = 169, 
                label = "Spending peaked 02 Aug", color = "#b35bab", size = 3) +
-      annotate(geom = "text", x = as.Date("2023-07-01") + 35, y = 175,
-               label = "",
-               color = "black", size = 3.5, hjust = 0, vjust = 0)
+      annotate(geom = "text", x = as.Date("2023-07-01") + 20, y = 172,
+               label = "Index 100 = February 2020 average",
+               color = "blue", size = 2.5)
     
     return(p)
   }
-  
   # Render the trend plot
   output$trendPlot <- renderPlotly({
     ggplotly(createTrendPlot(spending_data))
@@ -237,7 +254,6 @@ server <- function(input, output) {
   createLinePlot <- function(spending_data) {
     # Convert Date column to Date format
     spending_data$Date <- as.Date(spending_data$Date, format = "%d %b %Y")
-    
     
     # Filter data 
     july_17_data <- spending_data %>% filter(Date <= as.Date("2023-07-17"))
@@ -274,10 +290,14 @@ server <- function(input, output) {
                vjust = 1, hjust = 0, size = 2.7, color = "#c8c8c8") + 
       annotate("text", x = as.Date("2023-09-20") + 10, y = 204, 
                label = "Retail", 
-               vjust = 1, hjust = 0, size = 2.7, color = "#b35bab") 
+               vjust = 1, hjust = 0, size = 2.7, color = "#b35bab") +
+      annotate("text", x = as.Date("2023-07-01") + 20, y = 215, 
+                label = "Index 100 = February 2020 average", 
+                color = "blue", size = 2.5, hjust = 0)
     
     return(p)
   }
+  
   
   # Render the line plot
   output$linePlot <- renderPlotly({
@@ -350,6 +370,16 @@ server <- function(input, output) {
       yaxis = list(title = "Average Spending", showgrid = FALSE),
       showlegend = FALSE) 
     
+    # Add a text annotation for the reference point
+    p <- add_annotations(p,
+                         text = "Index 100 = February 2020 average",
+                         x = -0.02,
+                         y = 1.05,
+                         font = list(color = "blue", size = 10),
+                         showarrow = FALSE,
+                         xref = "paper",
+                         yref = "paper")
+    
     return(p)
   }
   
@@ -363,7 +393,6 @@ server <- function(input, output) {
     createAgePlot(filtered_data)
   })
   
-  # Define a function to create the sector plot
   createSectorPlot <- function(filtered_data) {
     # Calculate the average spending for each sector
     average_spending_sector <- filtered_data %>%
@@ -390,7 +419,17 @@ server <- function(input, output) {
       ),
       xaxis = list(title = "Average Spending", showgrid = FALSE),
       yaxis = list(title = "", showgrid = FALSE, showticklabels = FALSE),
-      showlegend = FALSE)
+      showlegend = FALSE) 
+    
+    # Add a text annotation for the reference point
+    p <- add_annotations(p,
+                         text = "Index 100 = February 2020 mean value",
+                         x = -0.1,
+                         y = 1.05,
+                         font = list(color = "blue", size = 9),
+                         showarrow = FALSE,
+                         xref = "paper",
+                         yref = "paper")
     
     return(p)
   }
@@ -404,8 +443,3 @@ server <- function(input, output) {
     # Create the sector plot using the filtered data
     createSectorPlot(filtered_data)
   })
-  
-}
-  
-# Run the application
-shinyApp(ui = ui, server = server)
