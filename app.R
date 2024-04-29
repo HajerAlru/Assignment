@@ -443,3 +443,8 @@ server <- function(input, output) {
     # Create the sector plot using the filtered data
     createSectorPlot(filtered_data)
   })
+  
+}
+  
+# Run the application
+shinyApp(ui = ui, server = server)
