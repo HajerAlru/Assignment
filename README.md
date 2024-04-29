@@ -123,8 +123,9 @@ Link to access the Revolut spending dataset.
     conditional colouring to highlight top sectors. Hover over the bars to view specific spending amounts for each sector. Move the slider to adjust the dates and observe spending trends over different time periods.
 
     The plot indicates that automotive fuel and retail are the top two sectors. 
+
     
-![GIF Recording 2024-04-29 at 5 52 47 pm](https://github.com/HajerAlru/Assignment/assets/168104134/7768d6b0-f2af-4d4d-8941-498c4b9dc931)
+![GIF Recording 2024-04-29 at 6 18 39 pm](https://github.com/HajerAlru/Assignment/assets/168104134/6675ac00-abce-4079-90f1-2a385ce24ff4)
 
 
 -   Line plot (Plot 6): Visualises spending trends for the top two spending sectors
@@ -140,7 +141,7 @@ Link to access the Revolut spending dataset.
 You can download the plots in PNG format by hovering over the plot and
 clicking on the camera icon in the top left corner.
 
-![GIF Recording 2024-04-29 at 5 54 32 pm](https://github.com/HajerAlru/Assignment/assets/168104134/f4400f31-a844-483d-8dfc-cf98893879bb)
+![GIF Recording 2024-04-29 at 6 20 57 pm](https://github.com/HajerAlru/Assignment/assets/168104134/4888f428-70b5-417f-8835-f80976eb908d)
 
 
 ## Contributing
