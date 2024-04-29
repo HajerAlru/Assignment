@@ -423,7 +423,7 @@ server <- function(input, output) {
     
     # Add a text annotation for the reference point
     p <- add_annotations(p,
-                         text = "Index 100 = February 2020 mean value",
+                         text = "Index 100 = February 2020 average",
                          x = -0.1,
                          y = 1.05,
                          font = list(color = "blue", size = 9),
